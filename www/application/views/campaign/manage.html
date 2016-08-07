@@ -1,0 +1,68 @@
+<div class="page-title">
+    <span class="title">Ad Campaigns</span>
+    <div class="description">
+        Manage all your adcampaign from here, edit and disable.
+        <span class="pull-right">
+            <a href="/campaign/fetch.html" class="btn btn-info"><i class="fa fa-link"></i> Import Campaign</a>
+            <a href="/campaign/create.html" class="btn btn-danger"><i class="fa fa-bullhorn"></i> New Campaign</a>
+        </span>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <div class="text-center card-action">
+                    <form class="form-inline" role="form" method="get" action="">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <label class="sr-only">Title</label>
+                                <span class="add-on input-group-addon"><i class="fa fa-bookmark fa-fw"></i> Title</span>
+                                <input type="text" style="width: 200px" name="short" class="form-control" required="" />
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </form>
+                </div>
+                <div class="clear-both"></div>
+            </div>
+            <div class="card-body no-padding">
+                <table class="table table-responsive">
+                    <tr>
+                        <th>Id</th>
+                        <th>Campaign</th>
+                        <th>Realtime</th>
+                        <th>Action</th>
+                    </tr>
+                    {foreach $item in $items}
+                    <tr>
+                        <td>{echo $item->id}</td>
+                        <td>
+                            <a href="/public/assets/uploads/images/{$item->image}" target="_blank"><img src="/campaign/resize/{echo base64_encode($item->image)}/50/50"></a>
+                            {echo $item->title}<br>
+                            <small>{echo Framework\StringMethods::datetime_to_text($item->created)}</small>
+                        </td>
+                        <td class="campaignstat" data-campaign="{echo $item->id}">
+                            <span class="label label-success">View</span>
+                        </td>
+                        <td>
+                            <a href="/campaign/update/{$item->id}.html" class="btn btn-info btn-xs"><i class="fa fa-edit"></i></a>
+                        </td>
+                    </tr>
+                    {/foreach}
+                </table>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <ul class="pager">
+                {if($page != 1)}
+                <li><a href="{echo Shared\Markup::pagination($page - 1)}">Previous</a></li>
+                {/if}
+                {if($page < $count/$limit)}
+                <li><a href="{echo Shared\Markup::pagination($page + 1)}">Next</a></li>
+                {/if}
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<nav class="navbar navbar-default navbar-fixed-top navbar-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-expand-toggle">
+                <i class="fa fa-bars icon"></i>
+            </button>
+            <ol class="breadcrumb navbar-breadcrumb">
+                <li class="active">Clicks99</li>
+            </ol>
+            <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                <i class="fa fa-th icon"></i>
+            </button>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <button type="button" class="navbar-right-expand-toggle pull-right visible-xs">
+                <i class="fa fa-times icon"></i>
+            </button>
+            {if(isset($admin))}
+            <li class="primary"><a href="/admin/index.html"><i class="fa fa-user-secret"></i> Admin</a></li>
+            {/if}
+            <li class="primary"><a href="/campaign.html"><i class="fa fa-link"></i> Get Link</a></li>
+            <li class="primary"><a href="/support/create.html"><i class="fa fa-tag"></i> Create Ticket</a></li>
+            <li class="dropdown info">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> {echo $user->name} (ID: {echo $user->id})</a>
+                <ul class="dropdown-menu danger  animated fadeInDown">
+                    <li>
+                        <ul class="list-group notifications">
+                            <a href="/publisher/profile.html">
+                                <li class="list-group-item"><i class="fa fa-user icon"></i> Profile</li>
+                            </a>
+                            <a href="/publisher/platforms.html">
+                                <li class="list-group-item"><i class="fa fa-tablet icon"></i> Platforms</li>
+                            </a>
+                            <a href="/auth/logout.html">
+                                <li class="list-group-item"><i class="fa fa-power-off icon"></i> Logout</li>
+                            </a>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="side-menu sidebar-inverse">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="side-menu-container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/publisher/index.html">
+                    <div class="icon fa fa-connectdevelop"></div>
+                    <div class="title">Publisher</div>
+                </a>
+                <button type="button" class="navbar-expand-toggle pull-right visible-xs">
+                    <i class="fa fa-times icon"></i>
+                </button>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="/publisher/index.html"><span class="icon fa fa-tachometer"></span><span class="title">Dashboard</span></a></li>
+                <li><a href="/publisher/links.html"><span class="icon fa fa-bar-chart-o"></span><span class="title">Link Stats</span></a></li>
+                <li><a href="/publisher/topearners.html"><span class="icon fa fa-table"></span><span class="title">Top Earners</span></a></li>
+                <li><a href="/campaign.html"><span class="icon fa fa-paper-plane-o"></span><span class="title">Campaigns</span></a></li>
+                <li><a href="/publisher/payments.html"><span class="icon fa fa-credit-card-alt"></span><span class="title">Payments</span></a></li>
+                <li><a href="/support/tickets.html"><span class="icon fa fa-support"></span><span class="title">Support</span></a></li>
+                <li><a href="https://www.facebook.com/groups/1542456012749189/" target="_blank"><span class="icon fa fa-facebook-square"></span><span class="title">Join Group</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
